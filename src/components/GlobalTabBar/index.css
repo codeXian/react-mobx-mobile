@@ -3,8 +3,8 @@
   height: 100%;
 }
 
-.TabBarWrapper :global(.am-tab-bar-bar) {
-  height: 100px;
+.TabBarWrapper :global(.am-tab-bar-bar .am-tab-bar-tab-title) {
+  margin-top: 10px;
 }
 
 .icon {
@@ -22,4 +22,34 @@
 .icon-index-active {
   composes: icon;
   background-image: url(images/index-active.png);
+}
+
+.icon-boil {
+  composes: icon;
+  background-image: url(images/boil.png);
+}
+
+.icon-boil-active {
+  composes: icon;
+  background-image: url(images/boil-active.png);
+}
+
+.icon-search {
+  composes: icon;
+  background-image: url(images/search.png);
+}
+
+.icon-search-active {
+  composes: icon;
+  background-image: url(images/search-active.png);
+}
+
+.icon-me {
+  composes: icon;
+  background-image: url(images/me.png);
+}
+
+.icon-me-active {
+  composes: icon;
+  background-image: url(images/me-active.png);
 }

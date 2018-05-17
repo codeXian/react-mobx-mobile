@@ -1,5 +1,3 @@
-"use strict";
-
 const autoprefixer = require("autoprefixer");
 const path = require("path");
 const webpack = require("webpack");
@@ -111,8 +109,7 @@ module.exports = {
   },
   module: {
     strictExportPresence: true,
-    rules: [
-      {
+    rules: [{
         test: /\.less$/,
         use: [
           require.resolve("style-loader"),
@@ -161,7 +158,10 @@ module.exports = {
             loader: require.resolve("less-loader"),
             options: {
               // theme vars, also can use theme.js instead of this.
-              modifyVars: { "@brand-primary": "#1DA57A" }
+              modifyVars: {
+                "@brand-primary": "#1DA57A",
+                "@hd": '2px'
+              }
             }
           }
         ]
@@ -175,15 +175,13 @@ module.exports = {
       {
         test: /\.(js|jsx|mjs)$/,
         enforce: "pre",
-        use: [
-          {
-            options: {
-              formatter: eslintFormatter,
-              eslintPath: require.resolve("eslint")
-            },
-            loader: require.resolve("eslint-loader")
-          }
-        ],
+        use: [{
+          options: {
+            formatter: eslintFormatter,
+            eslintPath: require.resolve("eslint")
+          },
+          loader: require.resolve("eslint-loader")
+        }],
         include: paths.appSrc
       },
       {

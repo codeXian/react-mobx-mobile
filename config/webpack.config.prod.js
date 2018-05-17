@@ -1,4 +1,4 @@
-"use strict";
+
 
 const autoprefixer = require("autoprefixer");
 const path = require("path");
@@ -47,10 +47,10 @@ const cssFilename = "static/css/[name].[contenthash:8].css";
 // (See https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/27)
 // However, our output is structured with css, js and media folders.
 // To have this structure working with relative paths, we have to use custom options.
-const extractTextPluginOptions = shouldUseRelativeAssetPaths
-  ? // Making sure that the publicPath goes back to to build folder.
-    { publicPath: Array(cssFilename.split("/").length).join("../") }
-  : {};
+const extractTextPluginOptions = shouldUseRelativeAssetPaths ? // Making sure that the publicPath goes back to to build folder.
+  {
+    publicPath: Array(cssFilename.split("/").length).join("../")
+  } : {};
 
 // add resolve src
 function resolve(dir) {
@@ -172,7 +172,10 @@ module.exports = {
             loader: require.resolve("less-loader"),
             options: {
               // theme vars, also can use theme.js instead of this.
-              modifyVars: { "@brand-primary": "#1DA57A" }
+              modifyVars: {
+                "@brand-primary": "#1DA57A",
+                "@hd": '2px'
+              }
             }
           }
         ]
@@ -180,15 +183,13 @@ module.exports = {
       {
         test: /\.(js|jsx|mjs)$/,
         enforce: "pre",
-        use: [
-          {
-            options: {
-              formatter: eslintFormatter,
-              eslintPath: require.resolve("eslint")
-            },
-            loader: require.resolve("eslint-loader")
-          }
-        ],
+        use: [{
+          options: {
+            formatter: eslintFormatter,
+            eslintPath: require.resolve("eslint")
+          },
+          loader: require.resolve("eslint-loader")
+        }],
         include: paths.appSrc
       },
       {
@@ -231,16 +232,14 @@ module.exports = {
             test: /\.css$/,
             exclude: /node_modules|antd-mobile\.css/,
             loader: ExtractTextPlugin.extract(
-              Object.assign(
-                {
+              Object.assign({
                   fallback: {
                     loader: require.resolve("style-loader"),
                     options: {
                       hmr: false
                     }
                   },
-                  use: [
-                    {
+                  use: [{
                       loader: require.resolve("css-loader"),
                       options: {
                         importLoaders: 1,

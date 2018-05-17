@@ -5,7 +5,8 @@
 ## 使用技术栈
 
 react
-vw 
+vw
+iconfont
 antd-mobile
-css-modules 
+css-modules
 postcss 一系列插件

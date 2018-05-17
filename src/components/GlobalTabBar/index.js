@@ -1,7 +1,7 @@
-import { TabBar } from "antd-mobile";
-import React, { PureComponent } from "react";
-import { GLOBALTABBAR } from "./config.js";
-import styles from "./index.css";
+import { TabBar } from 'antd-mobile';
+import React, { PureComponent } from 'react';
+import { GLOBALTABBAR, INDEX, TAB } from './config.js';
+import styles from './index.css';
 
 const Item = TabBar.Item;
 
@@ -10,7 +10,7 @@ const Icon = src => <div className={styles[`icon-${src}`]} />;
 export default class GlobalTabBar extends PureComponent {
   state = {
     data: [...GLOBALTABBAR],
-    selectedTab: "indexTab"
+    selectedTab: INDEX + TAB,
   };
   render() {
     return (
@@ -18,7 +18,7 @@ export default class GlobalTabBar extends PureComponent {
         <TabBar
           unselectedTintColor="#71777c"
           tintColor="#007fff"
-          barTintColor="white"
+          barTintColor="#f4f5f5"
         >
           {this.state.data.map(item => (
             <Item
@@ -26,7 +26,7 @@ export default class GlobalTabBar extends PureComponent {
               key={item.key}
               icon={Icon(item.key)}
               selectedIcon={Icon(item.active)}
-              selected={item.selected}
+              selected={this.state.selectedTab === item.selectedTab}
               onPress={() => {
                 this.setState({ selectedTab: item.selectedTab });
               }}

@@ -1,4 +1,4 @@
-const INDEX = 'index';
+export const INDEX = 'index';
 const INDEXNAME = '首页';
 const BOIL = 'boil';
 const BOILNAME = '沸点';
@@ -7,19 +7,18 @@ const SEARCHNAME = '发现';
 const ME = 'me';
 const MENAME = '我';
 const ACTIVE = '-active';
-const TAB = 'Tab';
+export const TAB = 'Tab';
 
-const getTabObj = (title, key, active, selectedTab, selected) => ({
+const getTabObj = (title, key, active, selectedTab) => ({
   title,
   key,
   active,
-  selectedTab,
-  selected
+  selectedTab
 })
 
 export const GLOBALTABBAR = [
-  getTabObj(INDEXNAME, INDEX, INDEX + ACTIVE, INDEX + TAB, true),
-  getTabObj(BOILNAME, BOIL, BOIL + ACTIVE, BOIL + TAB, false),
-  getTabObj(SEARCHNAME, SEARCH, SEARCH + ACTIVE, SEARCH + TAB, false),
-  getTabObj(MENAME, ME, ME + ACTIVE, ME + TAB, false)
+  getTabObj(INDEXNAME, INDEX, INDEX + ACTIVE, INDEX + TAB),
+  getTabObj(BOILNAME, BOIL, BOIL + ACTIVE, BOIL + TAB),
+  getTabObj(SEARCHNAME, SEARCH, SEARCH + ACTIVE, SEARCH + TAB),
+  getTabObj(MENAME, ME, ME + ACTIVE, ME + TAB)
 ]

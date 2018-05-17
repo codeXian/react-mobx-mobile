@@ -1,0 +1,25 @@
+.TabBarWrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.TabBarWrapper :global(.am-tab-bar-bar) {
+  height: 100px;
+}
+
+.icon {
+  width: 44px;
+  height: 44px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.icon-index {
+  composes: icon;
+  background-image: url(images/index.png);
+}
+
+.icon-index-active {
+  composes: icon;
+  background-image: url(images/index-active.png);
+}

@@ -43,6 +43,8 @@
     "react": "^16.3.2",
     "react-dev-utils": "^5.0.1",
     "react-dom": "^16.3.2",
+    "react-loadable": "^5.4.0",
+    "react-router-dom": "^4.2.2",
     "resolve": "1.6.0",
     "style-loader": "0.19.0",
     "sw-precache-webpack-plugin": "0.11.4",
@@ -102,7 +104,7 @@
           "libraryName": "antd-mobile",
           "style": true
         }
-      ]
+      ], "syntax-dynamic-import"
     ]
   },
   "eslintConfig": {
@@ -110,6 +112,7 @@
   },
   "devDependencies": {
     "babel-plugin-import": "^1.7.0",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "less": "^3.0.4",
     "less-loader": "^4.1.0"
   }

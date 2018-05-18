@@ -1,16 +1,22 @@
-import { TabBar } from 'antd-mobile';
-import React, { PureComponent } from 'react';
-import { GLOBALTABBAR, INDEX, TAB } from './config.js';
-import styles from './index.css';
+import { TabBar } from "antd-mobile";
+import React, { PureComponent } from "react";
+import Loadable from "react-loadable";
+import { GLOBALTABBAR, INDEX, TAB } from "./config.js";
+import styles from "./index.css";
+import Loading from "../Loading";
 
 const Item = TabBar.Item;
+const LoadableComponent = Loadable({
+  loader: () => import("../../routes/IndexPage"),
+  loading: Loading
+});
 
 const Icon = src => <div className={styles[`icon-${src}`]} />;
 
 export default class GlobalTabBar extends PureComponent {
   state = {
     data: [...GLOBALTABBAR],
-    selectedTab: INDEX + TAB,
+    selectedTab: INDEX + TAB
   };
   render() {
     return (
@@ -30,7 +36,9 @@ export default class GlobalTabBar extends PureComponent {
               onPress={() => {
                 this.setState({ selectedTab: item.selectedTab });
               }}
-            />
+            >
+              <LoadableComponent />
+            </Item>
           ))}
         </TabBar>
       </div>

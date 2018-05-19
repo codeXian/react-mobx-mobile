@@ -8,6 +8,7 @@ const ME = 'me';
 const MENAME = '我';
 const ACTIVE = '-active';
 export const TAB = 'Tab';
+export const TabBarArr = [INDEX, BOIL, SEARCH, ME];
 
 const getTabObj = (title, key, active, selectedTab) => ({
   title,
